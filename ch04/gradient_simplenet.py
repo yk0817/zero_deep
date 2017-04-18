@@ -10,3 +10,14 @@ class  simpleNet:
     
     def  predict(self,w):
         return np.dot(x, self.W)
+    
+    def  loss(self,x,t):
+        z = self.predict(x)
+        y = softmax(z)
+        loss = cross_entropy_error(y, t)
+        
+        return loss
+        
+
+net = simpleNet()
+print(net.W)
