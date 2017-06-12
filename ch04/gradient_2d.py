@@ -19,6 +19,8 @@ def _numerical_gradient_no_batch(f,x):
         # print(x)
         # sys.exit()
         fxh2 = f(x)
+        # print(f(x))
+        # print(x)
         grad[idx] = (fxh1 - fxh2) / (2*h)
         
         x[idx] = tmp_val
@@ -26,6 +28,8 @@ def _numerical_gradient_no_batch(f,x):
 
 # 次元方向により変更
 def numerical_gradient(f, X):
+    # print(X)
+    # print(X.ndim)
     if X.ndim == 1:
         return _numerical_gradient_no_batch(f, X)
     else:
