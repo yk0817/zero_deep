@@ -5,7 +5,7 @@ import matplotlib.pylab as plt
 from mpl_toolkits.mplot3d import Axes3D #3次元
 import sys
 
-
+# 微分係数を作成
 def _numerical_gradient_no_batch(f,x):
     h = 1e-4
     grad = np.zeros_like(x)
@@ -23,7 +23,8 @@ def _numerical_gradient_no_batch(f,x):
         
         x[idx] = tmp_val
     return grad
-    
+
+# 次元方向により変更
 def numerical_gradient(f, X):
     if X.ndim == 1:
         return _numerical_gradient_no_batch(f, X)
