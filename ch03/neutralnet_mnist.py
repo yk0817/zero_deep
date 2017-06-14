@@ -15,6 +15,7 @@ def init_network():
     return network
 
 def predict(network,x):
+    # print(network)
     w1,w2,w3 = network['W1'], network['W2'], network['W3']
     b1,b2,b3 = network['b1'], network['b2'], network['b3']
     # print(np.shape(x))
