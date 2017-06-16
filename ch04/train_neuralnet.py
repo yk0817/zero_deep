@@ -34,3 +34,22 @@ for key in ('W1', 'b1', 'W2', 'b2'):
     network.params[key] -= learning_rate * grad[key]
 
 loss = network.loss(x_batch, t_batch)
+train_loss_list.append(loss)
+
+if i % iter_per_epoch == 0:
+    train_acc = network.accuracy(x_train, t_train)
+    test_acc = network.accuracy(x_test, t_test)
+    train_acc_list.append(train_acc)
+    test_acc_list.append(test_acc)
+    print("train acc, test acc | " + str(train_acc) + ", " + str(test_acc))
+
+#  グラフの描画
+markers = {'train': 'o','test': 's'}
+x = np.arange(len(train_acc_list))
+plt.plot(x,train_acc_list)
+plt.plot(x, test_acc_list, label='test acc', linestyle='--')
+plt.xlabel("epochs")
+plt.ylabel("accuracy")
+plt.ylim(0, 1.0)
+plt.legend(loc='lower right')
+plt.show()
