@@ -14,6 +14,7 @@ class simpleNet:
     
     def loss(self, x, t):
         # print(self)
+        # 重み付けの掛け算
         z = self.predict(x)
         y = softmax(z)
         loss = cross_entropy_error(y, t)
