@@ -1,3 +1,5 @@
 /dataset
 /common
 /textbook_code
+*.html
+*.txt
